@@ -57,6 +57,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        // Custom Resort Colors
+        ocean: {
+          deep: "hsl(var(--ocean-deep))",
+          DEFAULT: "hsl(var(--primary))",
+          light: "hsl(var(--ocean-light))",
+        },
+        sand: {
+          warm: "hsl(var(--sand-warm))",
+          DEFAULT: "hsl(var(--secondary))",
+        },
+        sage: {
+          soft: "hsl(var(--sage-soft))",
+          DEFAULT: "hsl(var(--muted))",
+        },
+        stone: {
+          warm: "hsl(var(--stone-warm))",
+        },
+      },
+      fontFamily: {
+        playfair: ['Playfair Display', 'serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

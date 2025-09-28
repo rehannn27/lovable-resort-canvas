@@ -2,41 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Luxury Resort Design System - All colors MUST be HSL */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Luxury Resort Theme */
+    --background: 36 33% 97%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Ocean-inspired primary */
+    --primary: 200 80% 47%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Sand-inspired secondary */
+    --secondary: 43 60% 94%;
+    --secondary-foreground: 215 25% 27%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Sage-inspired muted */
+    --muted: 120 25% 95%;
+    --muted-foreground: 215 15% 50%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Nature accent */
+    --accent: 162 45% 85%;
+    --accent-foreground: 215 25% 27%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 43 25% 90%;
+    --input: 43 25% 90%;
+    --ring: 200 80% 47%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Custom Resort Design Tokens */
+    --ocean-deep: 200 100% 35%;
+    --ocean-light: 200 65% 85%;
+    --sand-warm: 43 60% 88%;
+    --sage-soft: 120 25% 88%;
+    --stone-warm: 25 15% 85%;
+    
+    /* Gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(200 80% 47%), hsl(200 65% 65%));
+    --gradient-sand: linear-gradient(135deg, hsl(43 60% 94%), hsl(43 40% 88%));
+    --gradient-hero: linear-gradient(135deg, hsl(200 100% 35% / 0.7), hsl(200 80% 47% / 0.5));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px hsl(200 50% 50% / 0.1);
+    --shadow-elegant: 0 8px 40px hsl(200 40% 40% / 0.12);
+    --shadow-luxury: 0 20px 60px hsl(200 30% 30% / 0.15);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +127,46 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+  }
+}
+
+@layer components {
+  /* Resort-specific component styles */
+  .hero-overlay {
+    background: var(--gradient-hero);
+  }
+  
+  .luxury-card {
+    @apply bg-card border border-border/50 shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-elegant)] transition-[var(--transition-smooth)] rounded-[var(--radius)];
+  }
+  
+  .ocean-gradient {
+    background: var(--gradient-ocean);
+  }
+  
+  .sand-gradient {
+    background: var(--gradient-sand);
+  }
+  
+  .resort-transition {
+    transition: var(--transition-smooth);
+  }
+  
+  .resort-transition-gentle {
+    transition: var(--transition-gentle);
+  }
+  
+  .text-luxury {
+    @apply text-foreground/90 leading-relaxed;
+  }
+  
+  .heading-luxury {
+    @apply text-foreground font-medium tracking-tight;
   }
 }
